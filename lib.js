@@ -8,18 +8,10 @@ $.ajax({
 	cache: true
 });
 
-/**
-  * modelId: 默认模型 ID -> 1
-  * modelTexturesId: 默认材质 ID -> 53
-  */
 $.ajax({
   url: live2d_path + "cute-widget-tips.js",
   dataType: "script",
-  cache: true,
-  data: {
-	  modelId: 2,
-	  modelTexturesId: 53
-	}
+  cache: true
 });
 
 var data = document.getElementById('live2d-widget-lib').getAttribute('data');
@@ -27,7 +19,12 @@ var ret = {}
 data.split('&').map(item => {
 	var obj = item.split('=')
 	ret[obj[0]] = obj[1]
-})
+});
+
+/**
+  * modelId: 默认模型 ID -> 1
+  * modelTexturesId: 默认材质 ID -> 53
+  */
 
 $(window).on("load", function() {
 	var modelId = ret['modelId'];
