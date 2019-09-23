@@ -14,6 +14,12 @@ $.ajax({
 	cache: true
 });
 
+/**
+  * modelId: 默认模型 ID -> 1
+  * modelTexturesId: 默认材质 ID -> 53
+  */
+initModel(5, 3);
+
 $(window).on("load", function() {
   /** 
     * function name: initWidget(tips, api)
