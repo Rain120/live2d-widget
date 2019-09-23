@@ -43,7 +43,7 @@ function loadWidget(cuteWidgetPath, apiPath) {
 			Live2D.captureFrame = true;
 		});
 		$("#cute-widget-tool .fa-info-circle").click(() => {
-			open("https://github.com/stevenjoezhang/live2d-widget");
+			open("https://github.com/rain120/live2d-widget");
 		});
 		$("#cute-widget-tool .fa-times").click(() => {
 			localStorage.setItem("cute-widget-display", new Date().getTime());
@@ -145,13 +145,13 @@ function loadWidget(cuteWidgetPath, apiPath) {
 		}
 	}
 
-	function initModel() {
-		var modelId = localStorage.getItem("modelId"),
-			modelTexturesId = localStorage.getItem("modelTexturesId");
+	function initModel(modelId, modelTexturesId) {
+		var modelId = localStorage.getItem("modelId");
+		var modelTexturesId = localStorage.getItem("modelTexturesId");
 		if (modelId == null) {
 			//首次访问加载 指定模型 的 指定材质
-			var modelId = 1, //模型 ID
-				modelTexturesId = 53; //材质 ID
+			var modelId = modelId || 1;//模型 ID
+			 modelTexturesId = modelTexturesId || 53; //材质 ID
 		}
 		loadModel(modelId, modelTexturesId);
 		$.getJSON(cuteWidgetPath, function(result) {
@@ -182,7 +182,6 @@ function loadWidget(cuteWidgetPath, apiPath) {
 			});
 		});
 	}
-	initModel();
 
 	function loadModel(modelId, modelTexturesId) {
 		localStorage.setItem("modelId", modelId);
