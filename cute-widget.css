@@ -1,19 +1,25 @@
 #cute-widget-toggle {
   position: fixed;
   writing-mode: vertical-rl;
-  bottom: 66px;
+  bottom: 300px;
   right: 20px !important;
   background-color: #fa0;
   color: #fff;
   border-radius: 5px;
   padding: 5px 2px 5px 5px;
   font-size: 12px;
-  width: 60px;
+  width: 46px;
+  height: 46px;
+  line-height: 46px;
+  padding: 5px 0;
   cursor: pointer;
+}
+#cute-widget-toggle:hover {
+  transform: scale3d(1.5, 1.5, 1.5);
 }
 #cute-widget {
   position: fixed;
-  bottom: -1000px;
+  bottom: 60px !important;
   right: 20px !important;
   z-index: 1;
   line-height: 0;
