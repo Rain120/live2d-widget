@@ -32,7 +32,7 @@ $(window).on("load", function() {
 	var modelTexturesId = ret['modelTexturesId'];
 	initModel(modelId, modelTexturesId);
 });
-$(window).on("load", function() {
+$(window).on("loaded", function() {
   /** 
     * function name: initWidget(tips, api)
     * tips： tips
