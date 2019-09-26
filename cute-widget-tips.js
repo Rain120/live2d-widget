@@ -146,13 +146,12 @@ function loadWidget(cuteWidgetPath, apiPath) {
 	}
 
 	function initModel(modelId, modelTexturesId) {
-		var modelId = localStorage.getItem("modelId");
-		var modelTexturesId = localStorage.getItem("modelTexturesId");
-		if (modelId == null) {
-			//首次访问加载 指定模型 的 指定材质
-			var modelId = modelId || 1;//模型 ID
-			 modelTexturesId = modelTexturesId || 53; //材质 ID
-		}
+		//首次访问加载 指定模型 的 指定材质
+		//模型 ID
+		modelId = localStorage.getItem("modelId") || modelId;
+		//材质 ID
+		modelTexturesId = localStorage.getItem("modelTexturesId") || modelTexturesId;
+
 		loadModel(modelId, modelTexturesId);
 		$.getJSON(cuteWidgetPath, function(result) {
 			$.each(result.mouseover, function(index, tips) {
@@ -182,6 +181,21 @@ function loadWidget(cuteWidgetPath, apiPath) {
 			});
 		});
 	}
+	
+	var data = document.getElementById('live2d-widget-lib').getAttribute('data');
+	var ret = {}
+	data.split('&').map(item => {
+		var obj = item.split('=')
+		ret[obj[0]] = obj[1]
+	});
+	
+	console.log('data', data);
+	console.log('https://github.com/Rain120/live2d-widget');
+	console.log('ret', ret);
+
+	var modelId = ret['modelId'] || 2;
+	var modelTexturesId = ret['modelTexturesId'] || 53;
+	initModel(modelId, modelTexturesId);
 
 	function loadModel(modelId, modelTexturesId) {
 		localStorage.setItem("modelId", modelId);
