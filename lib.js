@@ -14,24 +14,6 @@ $.ajax({
   cache: true
 });
 
-var data = document.getElementById('live2d-widget-lib').getAttribute('data');
-var ret = {}
-data.split('&').map(item => {
-	var obj = item.split('=')
-	ret[obj[0]] = obj[1]
-});
-console.log('data', document.getElementById('live2d-widget-lib').getAttribute('data'), data);
-
-$(window).on("load", function() {
-	/**
-		* modelId: 默认模型 ID -> 1
-		* modelTexturesId: 默认材质 ID -> 53
-		*/
-
-	var modelId = ret['modelId'];
-	var modelTexturesId = ret['modelTexturesId'];
-	initModel(modelId, modelTexturesId);
-});
 $(window).on("loaded", function() {
   /** 
     * function name: initWidget(tips, api)
