@@ -14,6 +14,14 @@ $.ajax({
   cache: true
 });
 
+/** 
+ * function name: initWidget(tips, api)
+ * tips： tips
+ * api: https://live2d.fghrsh.net/api
+ * 参考：https://github.com/fghrsh/live2d_api
+ */
+initWidget(live2d_path + "cute-widget-tips.json", "https://live2d.fghrsh.net/api");
+
 $(window).on("loaded", function() {
   /** 
     * function name: initWidget(tips, api)
